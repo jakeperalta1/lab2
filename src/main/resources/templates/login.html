@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Light blue background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: #90caf9; /* Light blue form background */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Increase the width of the form */
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px; /* Increase the padding for inputs */
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensure padding doesn't affect the width */
+        }
+        button {
+            background-color: #1e88e5; /* Blue for the button */
+            color: #fff;
+            padding: 12px 20px; /* Increase the padding for the button */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%; /* Make the button take the full width */
+        }
+        button:hover {
+            background-color: #1565c0; /* Slightly darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/login}" method="post">
+    <label>Email:</label>
+    <input type="text" name="email">
+    <label>Password:</label>
+    <input type="password" name="password">
+    <!-- Include a hidden input field to pass the token -->
+    <input type="hidden" id="token" name="token" th:value="${token}">
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
